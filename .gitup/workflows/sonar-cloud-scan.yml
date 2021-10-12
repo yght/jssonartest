@@ -13,6 +13,6 @@ jobs:
         uses: actions/checkout@v2
       - name: Analyze with SonarCloud
         env:
-          GITUB_TOKEN: ""
-          SONAR_TOKEN: "2345b1cdb2091d213bc68d2f394dfad159e37912"
+          GITUB_TOKEN: "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"
+          SONAR_TOKEN: "44a9a36025f4f277f5b41df753c705a61b0f440b"
 
