@@ -2,17 +2,31 @@ name: SonarCloud Scan
 on:
   push:
     branches:
-      - "master"
+      - master
 
+name: Main Workflow
 jobs:
-  sonarCloudTrigger:
-    name: SonarCloud Trigger
+  sonarcloud:
     runs-on: ubuntu-latest
     steps:
-      - name: Clone Repository
-        uses: actions/checkout@v2
-      - name: Analyze with SonarCloud
-        env:
-          GITUB_TOKEN: "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"
-          SONAR_TOKEN: "44a9a36025f4f277f5b41df753c705a61b0f440b"
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        GITUB_TOKEN: "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"
+        SONAR_TOKEN: "44a9a36025f4f277f5b41df753c705a61b0f440b"
+
+# jobs:
+#   sonarCloudTrigger:
+#     name: SonarCloud Trigger
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Clone Repository
+#         uses: actions/checkout@v2
+#       - name: Analyze with SonarCloud
+#         env:
+#           GITUB_TOKEN: "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"
+#           SONAR_TOKEN: "44a9a36025f4f277f5b41df753c705a61b0f440b"
 
